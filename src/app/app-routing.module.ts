@@ -1,7 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [
+
+
+  {
+    path:'graficas',
+    loadChildren:()=>import('./graficas/graficas.module').then(m=>m.GraficasModule)
+  },
+  {
+    path:'**',
+    redirectTo:'graficas'
+  }
+
+
+];
+
+
+//path:'graficas', lazyLoad
+
+//Cualquier ruta redireccion a graficas
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
